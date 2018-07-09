@@ -35,7 +35,7 @@ type Route struct {
 	StripPath     *bool               `default:"true" json:"strip_path"`
 	PreserveHost  *bool               `default:"false" json:"preserve_host"`
 	Service       *RouteServiceObject `json:"service"`
-	ServiceName   string              `json:"service_name"`
+	RouteMetadata
 }
 
 type Routes struct {
@@ -47,6 +47,12 @@ type Routes struct {
 type RouteQueryString struct {
 	Offset int
 	Size   int
+}
+
+// RouteMetadata struct adds helpful fields to reference and query routes and external objects
+type RouteMetadata struct {
+	Name        string `json:"name,omitempty"`
+	ServiceName string `json:"service_name,omitempty"`
 }
 
 const RoutesPath = "/routes/"
