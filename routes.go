@@ -51,7 +51,6 @@ type RouteQueryString struct {
 
 // RouteMetadata struct adds helpful fields to reference and query routes and external objects
 type RouteMetadata struct {
-	Name        string `json:"name,omitempty"`
 	ServiceName string `json:"service_name,omitempty"`
 }
 
