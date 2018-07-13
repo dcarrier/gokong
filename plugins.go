@@ -12,6 +12,8 @@ type PluginClient struct {
 type PluginRequest struct {
 	Name       string                 `json:"name"`
 	ApiId      string                 `json:"api_id,omitempty"`
+	RouteId    string                 `json:"route_id,omitempty"`
+	ServiceId  string                 `json:"service_id,omitempty"`
 	ConsumerId string                 `json:"consumer_id,omitempty"`
 	Config     map[string]interface{} `json:"config,omitempty"`
 }
@@ -20,6 +22,8 @@ type Plugin struct {
 	Id         string                 `json:"id"`
 	Name       string                 `json:"name"`
 	ApiId      string                 `json:"api_id,omitempty"`
+	RouteId    string                 `json:"route_id,omitempty"`
+	ServiceId  string                 `json:"service_id,omitempty"`
 	ConsumerId string                 `json:"consumer_id,omitempty"`
 	Config     map[string]interface{} `json:"config,omitempty"`
 	Enabled    bool                   `json:"enabled,omitempty"`

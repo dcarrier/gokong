@@ -27,14 +27,15 @@ type Route struct {
 	Id            *string             `json:"id"`
 	CreatedAt     *int                `json:"created_at"`
 	UpdatedAt     *int                `json:"updated_at"`
-	Protocols     []*string           `json:"protocols"`
+	Protocols     []*string           `default:"[\"http\", \"https\"]" json:"protocols"`
 	Methods       []*string           `json:"methods"`
 	Hosts         []*string           `json:"hosts"`
 	Paths         []*string           `json:"paths"`
-	RegexPriority *int                `json:"regex_priority"`
-	StripPath     *bool               `json:"strip_path"`
-	PreserveHost  *bool               `json:"preserve_host"`
+	RegexPriority *int                `default:"0" json:"regex_priority"`
+	StripPath     *bool               `default:"true" json:"strip_path"`
+	PreserveHost  *bool               `default:"false" json:"preserve_host"`
 	Service       *RouteServiceObject `json:"service"`
+	RouteMetadata
 }
 
 type Routes struct {
@@ -46,6 +47,11 @@ type Routes struct {
 type RouteQueryString struct {
 	Offset int
 	Size   int
+}
+
+// RouteMetadata struct adds helpful fields to reference and query routes and external objects
+type RouteMetadata struct {
+	ServiceName string `json:"service_name,omitempty"`
 }
 
 const RoutesPath = "/routes/"

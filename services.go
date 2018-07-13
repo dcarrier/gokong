@@ -30,10 +30,10 @@ type Service struct {
 	Port           int    `json:"port"`
 	Path           string `json:"path"`
 	Name           string `json:"name"`
-	Retries        int    `json:"retries"`
-	ConnectTimeout int    `json:"connect_timeout"`
-	WriteTimeout   int    `json:"write_timeout"`
-	ReadTimeout    int    `json:"read_timeout"`
+	Retries        int    `default:"5" json:"retries,omitempty"`
+	ConnectTimeout int    `default:"60000" json:"connect_timeout,omitempty"`
+	WriteTimeout   int    `default:"60000" json:"write_timeout,omitempty"`
+	ReadTimeout    int    `default:"60000" json:"read_timeout,omitempty"`
 }
 
 type Services struct {
